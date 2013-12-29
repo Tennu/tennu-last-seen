@@ -1,0 +1,18 @@
+{
+	"name": "tennu-last-seen",
+	"preferGlobal": false,
+	"version": "0.1.0",
+	"author": "metalbot",
+	"description": "A module for tennu that checks when a nick was last seen by the bot",
+	"repository" : {
+		"type": "git",
+		"url": "https://github.com:metalbot/tennu-last-sene.git"
+	},
+	"dependencies": {
+		"tennu": "0.7.2",
+	},
+	"engines": {
+		"node": ">=0.10"
+	}
+
+}
