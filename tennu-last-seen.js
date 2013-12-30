@@ -1,12 +1,12 @@
 module.exports = function (tennu) {
 	var addlist = function(message) {
-		nicklist[message.nickname.toLowerCase()] = message + " " + (new Date());
+		nicklist[message.nickname.toLowerCase()] = message.nickname + " seen " + (new Date());
 	}
 	var nicklist = {};
 	return {
 		dependencies: [],
 		exports: {
-			help: "Usage:  last-seen <nick>"
+			help: "Usage:  seen <nick>"
 		},
 		handlers: {
 			"!seen": function(command) {
@@ -16,6 +16,9 @@ module.exports = function (tennu) {
 				} else {
 					tennu.say(command.channel, nicklist[target.toLowerCase()]);
 				}
+			},
+			"!who": function(command) {
+				tennu.say(command.channel, "I don't do the who thing yet");
 			},
 			"join": function(message) {
 				addlist(message);
