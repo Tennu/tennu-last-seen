@@ -2,13 +2,11 @@ module.exports = function (tennu) {
 	var moment = require('moment');
 	var addlist = function(message, action) {
 		nicklist[message.nickname.toLowerCase()] = { "action" : action,
-													 "timestamp" : new Date() };
-
+					"timestamp" : new Date() };
 	}
 	var nickMessage = function(target) {
 		var result = nicklist[target.toLowerCase()];
 		return target + " " + result.action + " " + moment(result.timestamp).fromNow() + ".";
-
 	}
 	var nicklist = {};
 	return {
