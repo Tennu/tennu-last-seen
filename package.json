@@ -10,7 +10,8 @@
 	},
 	"dependencies": {
 		"tennu": "0.7.2",
-		"moment": "2.5.0"
+		"moment": "2.5.0",
+		"lodash": "2.4.x"
 	},
 	"engines": {
 		"node": ">=0.10"
