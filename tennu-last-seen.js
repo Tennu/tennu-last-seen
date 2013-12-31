@@ -2,13 +2,18 @@ module.exports = function (tennu) {
 	var moment = require('moment');
 	var fs = require('fs');
 	var lodash = require('lodash');
+	var suppressLogs = tennu.config('nolog') || [];
 
 	var addlist = function(message) {
 		var messageSpecific = function(message) {
 			switch(message.command) {
 				case 'privmsg':
-					return { action: "spoke",
+					if (suppressLogs.indexOf(message.channel) !== -1) {
+						return { action: "spoke" }
+					} else {
+						return { action: "spoke",
 							 message: message.message };
+					}
 				case 'join':
 					return { action: "joined",
 							 message: ""};
@@ -104,7 +109,7 @@ module.exports = function (tennu) {
 				});
 			},
 			"privmsg": function(message) {
-				addlist(message, "spoke");
+				if (!message.isQuery) { addlist(message, "spoke"); }
 			}
 		}
 	};
