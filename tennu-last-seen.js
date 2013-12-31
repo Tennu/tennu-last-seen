@@ -76,6 +76,9 @@ module.exports = function (tennu) {
 		handlers: {
 			"!seen": function(command) {
 				var target = command.args.shift();
+				if (target === command.hostmask.nickname) {
+					return "You're right here!";
+				}
 				if (typeof nicklist[target.toLowerCase()] === 'undefined') {
 					tennu.say(command.channel, 
 						target + " has not joined or left since I got here " + moment(gotHere).fromNow());
