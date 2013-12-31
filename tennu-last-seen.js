@@ -29,11 +29,7 @@ module.exports = function (tennu) {
 					"timestamp" : new Date(),
 				    "channel": message.channel,
 		};
-		console.log("Detected event and serializing");
-		console.log("command is " + JSON.stringify(message.command));
-		console.log("message specific object is " + JSON.stringify(messageSpecific(message)));
 		record = lodash.defaults(record, messageSpecific(message));
-		console.log(JSON.stringify(record));
 		nicklist[message.nickname.toLowerCase()] = record;
 	};
 	var channelText = function(channel) {
@@ -95,10 +91,8 @@ module.exports = function (tennu) {
 			},
 			"!store": function(command) {
 				var txt = JSON.stringify(nicklist, null, 4);
-				console.log("Writing " + txt);
 				fs.writeFile('nicklist.log', txt, {}, function(err) {
 					if (err) throw err;
-					console.log("nicklist object saved");
 				});
 			},
 			"!load": function(command) {
