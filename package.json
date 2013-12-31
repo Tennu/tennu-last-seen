@@ -6,7 +6,7 @@
 	"description": "A module for tennu that checks when a nick was last seen by the bot",
 	"repository" : {
 		"type": "git",
-		"url": "https://github.com:metalbot/tennu-last-sene.git"
+		"url": "https://github.com:metalbot/tennu-last-seen.git"
 	},
 	"dependencies": {
 		"tennu": "0.7.2",
